@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StyleAura | Modern Fashion Store</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+    body { background-color: #fafafa; color: #333; }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1400&q=80') center/cover;
+      color: white; text-align: center; padding: 120px 20px;
+    }
+    header h1 { font-size: 3rem; letter-spacing: 2px; }
+    header p { font-size: 1.2rem; margin-top: 10px; }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px; padding: 60px 10%;
+    }
+
+    .product-card {
+      background: white; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product-card:hover { transform: translateY(-8px); box-shadow: 0 8px 18px rgba(0,0,0,0.15); }
+
+    .product-card img { width: 100%; height: 250px; object-fit: cover; }
+    .info { padding: 20px; }
+    .info h3 { font-size: 1.2rem; margin-bottom: 5px; }
+    .info p { font-size: 0.9rem; color: #666; margin-bottom: 10px; }
+    .price { font-weight: bold; margin-bottom: 15px; font-size: 1rem; }
+    button {
+      background: #111; color: white; border: none; padding: 10px 18px;
+      border-radius: 25px; cursor: pointer; transition: background 0.3s;
+    }
+    button:hover { background: #444; }
+
+    footer { text-align: center; padding: 20px; background: #111; color: white; margin-top: 40px; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>StyleAura</h1>
+    <p>Elevate your look. Discover the latest trends.</p>
+  </header>
+
+  <section class="products">
+    <div class="product-card" data-name="Classic White T-Shirt" data-price="₹899" data-img="https://via.placeholder.com/300x300?text=T-Shirt">
+      <img src="https://via.placeholder.com/300x300?text=T-Shirt" alt="T-Shirt">
+      <div class="info">
+        <h3>Classic White T-Shirt</h3>
+        <p>Soft cotton comfort with premium fit.</p>
+        <div class="price">₹899</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Denim Jeans" data-price="₹1799" data-img="https://via.placeholder.com/300x300?text=Jeans">
+      <img src="https://via.placeholder.com/300x300?text=Jeans" alt="Jeans">
+      <div class="info">
+        <h3>Denim Jeans</h3>
+        <p>Rugged look with a perfect stretch fit.</p>
+        <div class="price">₹1799</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Summer Dress" data-price="₹1499" data-img="https://via.placeholder.com/300x300?text=Dress">
+      <img src="https://via.placeholder.com/300x300?text=Dress" alt="Dress">
+      <div class="info">
+        <h3>Summer Dress</h3>
+        <p>Floral vibes for bright sunny days.</p>
+        <div class="price">₹1499</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Leather Jacket" data-price="₹4999" data-img="https://via.placeholder.com/300x300?text=Jacket">
+      <img src="https://via.placeholder.com/300x300?text=Jacket" alt="Jacket">
+      <div class="info">
+        <h3>Leather Jacket</h3>
+        <p>Bold, durable, and timelessly stylish.</p>
+        <div class="price">₹4999</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Hoodie" data-price="₹1299" data-img="https://via.placeholder.com/300x300?text=Hoodie">
+      <img src="https://via.placeholder.com/300x300?text=Hoodie" alt="Hoodie">
+      <div class="info">
+        <h3>Hoodie</h3>
+        <p>Cozy comfort with a modern edge.</p>
+        <div class="price">₹1299</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-name="Sneakers" data-price="₹2599" data-img="https://via.placeholder.com/300x300?text=Sneakers">
+      <img src="https://via.placeholder.com/300x300?text=Sneakers" alt="Sneakers">
+      <div class="info">
+        <h3>Sneakers</h3>
+        <p>Everyday comfort with urban style.</p>
+        <div class="price">₹2599</div>
+        <button onclick="buyNow(this)">Buy Now</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2025 StyleAura. All rights reserved.</footer>
+
+  <script>
+    function buyNow(btn) {
+      const card = btn.closest('.product-card');
+      const product = {
+        name: card.dataset.name,
+        price: card.dataset.price,
+        img: card.dataset.img
+      };
+      localStorage.setItem('selectedProduct', JSON.stringify(product));
+      window.location.href = 'form.html';
+    }
+  </script>
+</body>
+</html>
